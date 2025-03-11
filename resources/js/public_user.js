@@ -3,3 +3,5 @@ async function getUser(dni) {
 
     return (await axios.get(url)).data;
 }
+
+export { getUser };

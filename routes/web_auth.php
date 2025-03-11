@@ -11,5 +11,10 @@ Route::get('/request-password', function () {
 })->name('password.request');
 
 Route::get('/register', function () {
-    return '';
+    return view('auth.register');
+})->name('register.view');
+
+Route::post('/register', function () {
+    return 'Handle register';
 })->name('register');
+

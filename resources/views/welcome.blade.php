@@ -210,7 +210,7 @@
                 <div class="flex flex-col space-y-2">
                     <div class="text-sm text-center text-gray-500">
                         ¿No tienes una cuenta?
-                        <a href="{{ route('register') }}" class="hover:underline text-black">
+                        <a href="{{ route('register.view') }}" class="hover:underline text-black">
                             Regístrate
                         </a>
                     </div>
