@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->foreignId('empleado_id')->constrained('empleados', 'id')->cascadeOnDelete();
             $table->foreignId('banco_id')->constrained('bancos', 'id')->cascadeOnDelete();
             $table->string('numero_cuenta')->unique();
-            $table->string('cuenta_cts')->unique()->nullable();
+            $table->boolean('is_cts')->default(false);
             $table->string('moneda')->nullable(false)->default(MonedaEnum::SOLES->value);
             $table->timestamps();
         });

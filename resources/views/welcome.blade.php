@@ -15,11 +15,19 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
     @vite('resources/css/app.css')
+    @routes
     <x-favicon />
 </head>
 
 <body>
 
+    @if ($displayLogin)
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                login_modal.showModal();
+            });
+        </script>
+    @endif
     <div class="min-h-screen bg-[#f2fce2]">
         <header class="absolute top-0 left-0 right-0 z-20 p-4">
             <div class="container mx-auto flex justify-between items-center">
@@ -145,7 +153,7 @@
     </footer>
 
     <dialog class="modal modal-bottom sm:modal-middle" id="login_modal">
-        <div class="modal-box bg-white/95">
+        <div class="modal-box bg-stone-100">
             <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>

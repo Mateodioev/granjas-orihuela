@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::table('users', function (Blueprint $table) {
             $table->string('dni', 9)->unique()->nullable(false);
             $table->string('apellidos');
-            $table->string('telefono', 10)->nullable();
+            $table->string('celular', 10)->nullable();
             $table->date('fecha_nacimiento')->nullable();
         });
     }
@@ -24,7 +24,10 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('dni');
+            $table->dropColumn('apellidos');
+            $table->dropColumn('celular');
+            $table->dropColumn('fecha_nacimiento');
         });
     }
 };

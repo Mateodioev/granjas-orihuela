@@ -34,5 +34,8 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'apis_net' => [
+        'token' => env('APIS_NET_TOKEN'),
+    ],
 
 ];
