@@ -147,6 +147,16 @@
                             </button>
                         </div>
                     </div>
+
+                    @if ($errors->any())
+                        <div class="alert alert-error" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </form>
             </div>
             <div class="flex flex-col space-y-2">
@@ -165,5 +175,5 @@
     </footer>
 </div>
 
-@vite('resources/js/register.js')
+@vite('resources/js/auth/register.js')
 @endsection
