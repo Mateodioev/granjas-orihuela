@@ -21,6 +21,8 @@ class CreateRolesAndPermission extends Seeder
         $this->createContadorRol();
         $this->createSupervisorRol();
         $this->createEmpleadoRol();
+
+        Role::create(['name' => RolesEnum::EXTERNO]);
     }
 
     private function createPermissions(): void

@@ -35,4 +35,6 @@ enum RolesEnum: string
      * Puede solicitar adelantos y ver su asistencia
      */
     case EMPLEADO = 'empleado';
+
+    case EXTERNO = 'externo';
 }
