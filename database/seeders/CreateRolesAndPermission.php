@@ -54,6 +54,8 @@ class CreateRolesAndPermission extends Seeder
             PermissionEnum::VerAsistencia,
             PermissionEnum::EditarAsistencia,
             PermissionEnum::AprobarAdelanto,
+            PermissionEnum::VerOtrasSedes,
+            PermissionEnum::VerNomina,
         ]);
     }
 
