@@ -10,17 +10,22 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('remuneraciones', function (Blueprint $table) {
+        Schema::create('horas_extras', function (Blueprint $table) {
             $table->id();
             $table->foreignId('empleado_id')->constrained('empleados', 'id')->cascadeOnDelete();
             $table->foreignId('contrato_id')->constrained('contratos', 'id')->cascadeOnDelete();
-            $table->date('fecha_pago')->nullable();
-            $table->decimal('salario_bruto', 10, 2)->default(false);
-            $table->decimal('bonus', 10, 2)->default(0);
-            $table->decimal('deducciones', 10, 2)->default(0);
-            $table->decimal('salario_neto', 10, 2)->nullable(false);
+            $table->date('fecha');
+            $table->time('inicio')->nullable(false);
+            $table->time('fin')->nullable(false);
+            $table->boolean('aprobado')->default(false);
             $table->timestamps();
         });
+
+        DB::statement('
+            ALTER TABLE horas_extras
+            ADD COLUMN total_minutos INT GENERATED ALWAYS AS (TIME_TO_SEC(TIMEDIFF(fin, inicio)) / 60) STORED,
+            ADD COLUMN total_horas INT GENERATED ALWAYS AS (TIME_TO_SEC(TIMEDIFF(fin, inicio)) / 3600) STORED;
+        ');
     }
 
     /**
@@ -28,6 +33,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('remuneraciones');
+        Schema::dropIfExists('horas_extras');
     }
 };

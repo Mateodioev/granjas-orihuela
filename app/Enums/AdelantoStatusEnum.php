@@ -8,5 +8,8 @@ enum AdelantoStatusEnum: string
 {
     case PENDIENTE = 'Pendiente';
     case PAGADO = 'Pagado';
+    case APROBADO = 'Aprobado';
+    case RECHAZADO = 'Rechazado';
     case CANCELADO = 'Cancelado';
+
 }

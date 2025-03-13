@@ -138,11 +138,11 @@
 
                         <div class="grid grid-cols-2 gap-4">
                             <button type="button" id="retroceder_btn"
-                                class="w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600 transitio duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+                                class="w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
                                 Retroceder
                             </button>
                             <button type="submit"
-                                class="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transitio duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+                                class="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
                                 Registrarme
                             </button>
                         </div>
