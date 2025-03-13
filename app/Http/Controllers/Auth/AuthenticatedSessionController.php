@@ -10,6 +10,12 @@ use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
+    public function create()
+    {
+        return redirect()
+            ->route('index')
+            ->with('display_login', 1);
+    }
     /**
      * Handle an incoming authenticated request
      */

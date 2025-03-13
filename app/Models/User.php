@@ -53,4 +53,14 @@ class User extends Authenticatable
             'fecha_nacimiento' => 'date',
         ];
     }
+
+    public function empleado()
+    {
+        return $this->hasOne(Empleado::class, 'user_id');
+    }
+
+    public function sedes()
+    {
+        return $this->belongsTo(Sede::class, 'sede_usuario');
+    }
 }

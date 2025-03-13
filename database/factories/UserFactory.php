@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -23,8 +24,13 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        Carbon::now()->subYears(19);
         return [
-            'name' => fake()->name(),
+            'dni' => 11111111,
+            'celular' => $this->rndBool('999999999', null),
+            'fecha_nacimiento' => $this->rndBool(Carbon::now()->subYears(19), null),
+            'nombres' => fake()->name(),
+            'apellidos' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
@@ -33,11 +39,21 @@ class UserFactory extends Factory
     }
 
     /**
+     * Return true or false randomly.
+     */
+    private function rndBool($onTrue, $onFalse): mixed
+    {
+        $bool = fake()->boolean();
+
+        return $bool ? $onTrue : $onFalse;
+    }
+
+    /**
      * Indicate that the model's email address should be unverified.
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
     }

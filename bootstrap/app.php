@@ -1,6 +1,8 @@
 <?php
 
 use App\Exceptions\ApiException;
+use App\Http\Middleware\LoadEmployee;
+use App\Http\Middleware\OnlyEmployees;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -15,7 +17,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias([]);
+        $middleware->appendToGroup('auth', LoadEmployee::class);
+        $middleware->alias([
+            'onlyEmployees' => OnlyEmployees::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->report(function (Throwable $e) {

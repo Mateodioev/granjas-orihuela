@@ -173,7 +173,7 @@
                     Ingresa a tu cuenta para gestionar tus pedidos
                 </p>
                 <div class="w-full">
-                    <form action="{{ route('login') }}" method="POST" class="space-y-4 py-4">
+                    <form action="{{ route('login.store') }}" method="POST" class="space-y-4 py-4">
                         @csrf
                         <div class="space-y-2">
                             <label for="identifier"

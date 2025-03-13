@@ -15,11 +15,9 @@ return new class extends Migration {
             $table->foreignId('empleado_id')->constrained('empleados', 'id')->onDelete('cascade');
             $table->foreignId('sede_id')->constrained('sedes', 'id');
             $table->foreignId('puesto_id')->constrained('puestos', 'id');
-            $table->decimal('rmv', 10, 2)->nullable(false);
             $table->date('fecha_inicio');
             $table->date('fecha_fin')->nullable()->default(null);
-            $table->decimal('salario_bruto', 10, 2);
-            $table->integer('horas_trabajo')->default(8);
+            $table->decimal('jornal', 10, 2)->nullable(false);
             $table->string('status')->default('Vigente');
             $table->timestamps();
         });

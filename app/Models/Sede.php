@@ -10,4 +10,9 @@ class Sede extends Model
         'nombre',
         'direccion',
     ];
+
+    public function usuarios()
+    {
+        return $this->belongsToMany(User::class, 'sede_usuario')->withTimestamps();
+    }
 }

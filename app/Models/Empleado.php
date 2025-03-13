@@ -47,4 +47,9 @@ class Empleado extends Model
     {
         return $this->hasMany(Asistencia::class);
     }
+
+    public function misEmpleados()
+    {
+        $rol = $this->user->roles;
+    }
 }
