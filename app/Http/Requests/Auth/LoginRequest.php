@@ -26,7 +26,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'identifier' => ['required', 'string1'],
+            'identifier' => ['required', 'string'],
             'password' => ['required', 'string'],
         ];
     }
