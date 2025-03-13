@@ -207,6 +207,9 @@
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="bi bi-lock"></i>
                                 </div>
+                                <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
+                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                </div>
                             </div>
                         </div>
                         <button type="submit"
@@ -236,4 +239,5 @@
     </dialog>
 </body>
 
+@vite('resources/js/auth/login.js')
 </html>
