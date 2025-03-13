@@ -206,6 +206,15 @@
                             class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-sm">Iniciar
                             sesión</button>
                     </form>
+                    @if ($errors->any())
+                        <div class="alert alert-error" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
                 <div class="flex flex-col space-y-2">
                     <div class="text-sm text-center text-gray-500">

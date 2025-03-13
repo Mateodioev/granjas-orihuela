@@ -10,6 +10,7 @@ class IndexController extends Controller
     {
         return view('welcome', [
             'displayLogin' => $request->boolean('display_login')
+                ?: $request->session()->get('display_login', false)
         ]);
     }
 }
