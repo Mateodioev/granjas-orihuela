@@ -48,10 +48,15 @@
 
                 {{-- Cambiar session --}}
                 <div class="p-4 border-t border-gray-200">
-                    <button class="w-full justify-start text-gray-600 hover:bg-gray-100">
-                        <i class="bi bi-box-arrow-left"></i>
-                        <span>Cerrar sesión</span>
-                    </button>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();" class="w-full text-left px-4 py-2 flex rounded-md hover:bg-gray-300">
+                            <div class="mr-2">
+                                <i class="bi bi-box-arrow-left"></i>
+                            </div>
+                            <span>Cerrar sesión</span>
+                        </a>
+                    </form>
                 </div>
             </aside>
 
